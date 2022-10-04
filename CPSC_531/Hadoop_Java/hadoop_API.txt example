@@ -1,0 +1,70 @@
+//this is follow allong notes from 09/13/22 CPSC 531- Database
+
+
+import org.apache.hadoop.conf.Configuration;
+import org.apage.hadoop.fs.filesystem;
+import org.apache.hadoop.fs.Path;
+
+/*
+
+public class TestFileAPI
+{
+    public void createFile(string fileName) throws Exception
+    {
+        //
+        Configuration conf = new Configuration ();
+        FileSystem fs FileSystem.get(conf);
+        Path path = new Path(fileName);
+        FSDataOutputStream out= fs.create(path);
+        //
+
+        BufferedWriter bw= BufferedWriter(new OutputStreamWriter(out))
+        log.info(o: "Start writing data to the file. ");
+        for (int i =0; i <10; i++)
+        {
+            bw.write(str. "New Line" +i );
+            bw.newLine();
+        }
+        log.info(o: "End writing data to the file");
+        bw.close();
+
+    }
+    public void readFile(String fileName) throws Exception 
+    {
+        Configuration conf = new Configuration ();
+        FileSystem fs FileSystem.get(conf);
+        Path path = new Path(fileName);
+        FSDataInputStream inStream = fs.open(path);
+
+        in.seek(0);
+        InputStreamReader reader = new InputStreamReader(in);
+        BufferedReader br = new BufferedReader(reader);
+        String line = null;
+        while ((line =br.readline()) != null)
+        {
+            log.info(line)
+        }
+        //
+        BlockLocation[] loc = fs.getFileBlockLocations(path, start: 0 . len: 1000);
+        for (BlockLocation b : loc)
+        {
+            log.info( o: "Block offset:" + b.getOffset());
+            log.info( o: "Block offset:" + b.getLength());
+            log.info( o: "Datanode:" + b.getNames()[0]);
+        }
+        //File Status
+
+        FileStatus fStatus = fs.getFileStatus(path);
+        log.info(o: "File Block Size: "+ fstatus.getBlockSize());
+        log.info(o: "File Content Size: "+ fstatus.getLen());
+        log.info(o: "File Group String: "+ fstatus.getGroup());
+        log.info(o: "File Owner String: "+ fstatus.getOwner()); 
+        in.close();
+    }
+
+    public static void main(String[] args) throws Exception 
+    {
+        new TestFileLevelAPI().readFile(args[0]);
+    }
+}
+*"
